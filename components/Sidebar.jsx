@@ -1,17 +1,20 @@
 "use client";
 
-import run from '@/ChatEngine/engine.js';
 import { sidebarList } from '@/constants/constant';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const Sidebar = () => {
-    const [active, setActive] = useState('Chat Engine');
+    const [active, setActive] = useState('');
+    const path=usePathname();
+    useEffect(() => {
+        const realObj=sidebarList.find(item=>item.route==path);
+      setActive(realObj.label)
+    }, [path])
     
-    useEffect(()=>{
-        console.log(run())
-    },[])
+    
     return (
         <div className="w-[18rem] h-screen bg-gray-900 py-12 px-4">
             <h1 className="text-center text-white text-2xl mb-8">

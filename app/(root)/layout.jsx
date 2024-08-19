@@ -1,13 +1,7 @@
-import Sidebar from "@/components/Sidebar";
-
-export default function LayoutRouter({ children }) {
+export default function MainLayout({ children }) {
     return (
-        <main className="bg-black flex">
-            <Sidebar />
-            <div className="w-full h-screen">
-
-                {children}
-            </div>
-        </main>
+        <div className="w-full h-screen">
+            {children}
+        </div>
     )
 }
